@@ -10,14 +10,14 @@
             array());
         $objPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $objUser = new User($objPDO);
-        $objUser->setUsername('Harry Potter')->setPassword('Rowlings')->setLockedSta(true)->setLoggedSta(true)->setEmail('Nowickiss@gmail.com')->setORGID(1)->setSUBORGID(1);
+        $objUser->setUsername('Harry Potter')->setPassword('Rowlings')->setLockedSta(true)->setLoggedSta(true)->setEmail('Nowickiss@gmail.com')->setORGID(1)->setSUBORGID(1)->Save();
 
         print "First name is " . $objUser->getUsername() . "<br />";
         print "Last name is " . $objUser->getPassword() . "<br />";
 
         print "Saving...<br />";
 
-        $objUser->Save();
+        
 
         $id = $objUser->getID();
         print "ID in database is " . $id . "<br />";
@@ -27,14 +27,13 @@
 
         print "Recreating object from ID $id<br />";
         $objUser = new Employee($objPDO);
-        $objUser->setEMPID(1)->setName('J. K. Rowlings')->setDESIGID(1)->setDEPARTID(1)->setTipo(1);
+        $objUser->setEMPID(1)->setName('J. K. Rowlings')->setDESIGID(1)->setDEPARTID(1)->setTipo(1)->Save();
 
         print "First name is " . $objUser->getName() . "<br />";
         print "Last name is " . $objUser->getTipo() . "<br />";
 
         print "Saving...<br />";
 
-        $objUser->Save();
 
         $id = $objUser->getID();
         print "ID in database is " . $id . "<br />";
@@ -43,14 +42,13 @@
         unset($objUser);
 
         $objUser = new Departament($objPDO);
-        $objUser->setNameDept("Departamento 2")->setDescription('Malisima');
+        $objUser->setNameDept("Departamento 2")->setDescription('Malisima')->Save();
 
         print "First name is " . $objUser->getNameDept() . "<br />";
         print "Last name is " . $objUser->getDescription() . "<br />";
 
         print "Saving...<br />";
 
-        $objUser->Save();
 
         $id = $objUser->getID();
         print "ID in database is " . $id . "<br />";
